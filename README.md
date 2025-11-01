@@ -4,7 +4,6 @@ Uma lista de tarefas **profissional** que roda no terminal, com:
 - Adicionar tarefas com título e descrição
 - Marcar como concluída [X]
 - Listar todas ou só pendentes
-- Interface com emojis
 
 ---
 
@@ -13,4 +12,5 @@ Uma lista de tarefas **profissional** que roda no terminal, com:
 1. **Abra o terminal** na pasta do projeto
 2. **Compile**:
    ```bash
+
    javac *.java
