@@ -7,7 +7,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("🚀 Bem-vindo à MINHA TO-DO LIST AVANÇADA!");
+        System.out.println("Bem-vindo à MINHA TO-DO LIST AVANÇADA!");
         System.out.println("Feito por @Lilithcurious\n");
 
         // Loop principal do programa
@@ -21,11 +21,11 @@ public class Main {
                 case 3 -> listarTarefasPendentes();
                 case 4 -> marcarTarefaConcluida();
                 case 5 -> {
-                    System.out.println("\n👋 Tchau! Obrigado por usar minha To-Do List!");
+                    System.out.println("\n Tchau! Obrigado por usar minha To-Do List!");
                     scanner.close();
                     return; // sai do programa
                 }
-                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+                default -> System.out.println(" Opção inválida! Tente novamente.");
             }
 
             System.out.println("\n" + "─".repeat(40) + "\n");
@@ -34,12 +34,12 @@ public class Main {
 
     // Método para mostrar o menu
     private static void exibirMenu() {
-        System.out.println("📋 === MINHA TO-DO LIST AVANÇADA ===");
-        System.out.println("1. ➕ Adicionar nova tarefa");
-        System.out.println("2. 📄 Listar todas as tarefas");
-        System.out.println("3. ⏳ Listar tarefas pendentes");
-        System.out.println("4. ✅ Marcar tarefa como concluída");
-        System.out.println("5. 🚪 Sair");
+        System.out.println("=== MINHA TO-DO LIST AVANÇADA ===");
+        System.out.println("1.  Adicionar nova tarefa");
+        System.out.println("2.  Listar todas as tarefas");
+        System.out.println("3.  Listar tarefas pendentes");
+        System.out.println("4.  Marcar tarefa como concluída");
+        System.out.println("5.  Sair");
         System.out.println("═".repeat(35));
         System.out.print("Escolha uma opção: ");
     }
@@ -49,7 +49,7 @@ public class Main {
         try {
             return scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("❌ Digite apenas números!");
+            System.out.println(" Digite apenas números!");
             scanner.nextLine(); // limpa o buffer
             return 0;
         }
@@ -57,34 +57,34 @@ public class Main {
 
     // Método 1: Adicionar nova tarefa
     private static void adicionarTarefa() {
-        System.out.println("\n➕ === ADICIONAR TAREFA ===");
+        System.out.println("\n === ADICIONAR TAREFA ===");
         
-        System.out.print("📝 Título da tarefa: ");
+        System.out.print(" Título da tarefa: ");
         scanner.nextLine(); // limpa buffer
         String titulo = scanner.nextLine();
 
         if (titulo.trim().isEmpty()) {
-            System.out.println("❌ Título não pode estar vazio!");
+            System.out.println(" Título não pode estar vazio!");
             return;
         }
 
-        System.out.print("📄 Descrição (opcional): ");
+        System.out.print(" Descrição (opcional): ");
         String descricao = scanner.nextLine();
 
         // Cria a nova tarefa
         Tarefa novaTarefa = new Tarefa(titulo, descricao);
         tarefas.add(novaTarefa);
 
-        System.out.println("✅ Tarefa '" + titulo + "' adicionada com sucesso!");
-        System.out.println("📊 Total de tarefas: " + tarefas.size());
+        System.out.println(" Tarefa '" + titulo + "' adicionada com sucesso!");
+        System.out.println(" Total de tarefas: " + tarefas.size());
     }
 
     // Método 2: Listar todas as tarefas
     private static void listarTodasTarefas() {
-        System.out.println("\n📄 === TODAS AS TAREFAS (" + tarefas.size() + ") ===");
+        System.out.println("\n === TODAS AS TAREFAS (" + tarefas.size() + ") ===");
         
         if (tarefas.isEmpty()) {
-            System.out.println("📭 Nenhuma tarefa cadastrada ainda.");
+            System.out.println(" Nenhuma tarefa cadastrada ainda.");
             return;
         }
 
@@ -109,7 +109,7 @@ public class Main {
 
     // Método 3: Listar só pendentes
     private static void listarTarefasPendentes() {
-        System.out.println("\n⏳ === TAREFAS PENDENTES ===");
+        System.out.println("\n === TAREFAS PENDENTES ===");
         
         ArrayList<Tarefa> pendentes = new ArrayList<>();
         for (Tarefa t : tarefas) {
@@ -119,7 +119,7 @@ public class Main {
         }
 
         if (pendentes.isEmpty()) {
-            System.out.println("🎉 Todas as tarefas estão concluídas! Parabéns!");
+            System.out.println(" Todas as tarefas estão concluídas! Parabéns!");
             return;
         }
 
@@ -127,17 +127,17 @@ public class Main {
             System.out.println((i + 1) + ". " + pendentes.get(i));
         }
 
-        System.out.println("📊 Total pendente: " + pendentes.size());
+        System.out.println(" Total pendente: " + pendentes.size());
     }
 
     // Método 4: Marcar como concluída
     private static void marcarTarefaConcluida() {
         if (tarefas.isEmpty()) {
-            System.out.println("❌ Nenhuma tarefa para marcar!");
+            System.out.println(" Nenhuma tarefa para marcar!");
             return;
         }
 
-        System.out.println("\n✅ === MARCAR TAREFA CONCLUÍDA ===");
+        System.out.println("\n === MARCAR TAREFA CONCLUÍDA ===");
         listarTarefasPendentes();
 
         System.out.print("Digite o número da tarefa (1-" + tarefas.size() + "): ");
@@ -149,17 +149,18 @@ public class Main {
                 Tarefa tarefaEscolhida = tarefas.get(numero);
                 
                 if (tarefaEscolhida.isConcluida()) {
-                    System.out.println("⚠️ Esta tarefa já está concluída!");
+                    System.out.println(" Esta tarefa já está concluída!");
                 } else {
                     tarefaEscolhida.marcarComoConcluida();
-                    System.out.println("🎉 Tarefa '" + tarefaEscolhida.getTitulo() + "' marcada como CONCLUÍDA! ✅");
+                    System.out.println(" Tarefa '" + tarefaEscolhida.getTitulo() + "' marcada como CONCLUÍDA! ✅");
                 }
             } else {
-                System.out.println("❌ Número inválido!");
+                System.out.println(" Número inválido!");
             }
         } catch (Exception e) {
-            System.out.println("❌ Digite apenas números!");
+            System.out.println(" Digite apenas números!");
             scanner.nextLine();
         }
     }
 }
+
